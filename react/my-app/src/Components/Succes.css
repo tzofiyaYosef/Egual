@@ -1,0 +1,47 @@
+.text-stroke {
+    margin-top: 10%;
+    font-size: 52px;
+    letter-spacing: 4px;
+    fill: none;
+    stroke: #000;
+    stroke-width: 2;
+    stroke-dasharray: 50%;
+    stroke-dashoffset: 150%;
+    animation: textAnimation 6s linear forwards;
+    width: 100%;
+  }
+  
+  @keyframes textAnimation {
+    0% {
+      stroke-dasharray: 50%;
+      stroke-dashoffset: 150%;
+      fill: transparent;
+    }
+    100% {
+      stroke-dasharray: 0%;
+      stroke-dashoffset: 0%;
+      fill: #eeeeee;
+      filter: drop-shadow(2px 2px 10px #0007);
+    }
+  }
+
+.btn{
+    direction: ltr;
+    width: 10%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    margin: 5px 0;
+    opacity: 0.85;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.succes{
+  color: #518ab9;
+  margin-top: 10%;
+  margin-bottom: 4%;
+}

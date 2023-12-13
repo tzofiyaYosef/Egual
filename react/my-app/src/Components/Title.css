@@ -1,0 +1,90 @@
+:root {
+    --focus_element_width: 170px;
+    --focus_content: "Egual";
+}
+
+@-webkit-keyframes mask-move {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(var(--focus_element_width) - 50px));
+    }
+}
+
+@keyframes mask-move {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(var(--focus_element_width) - 50px));
+    }
+}
+
+@-webkit-keyframes mask-inner-move {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(calc(var(--focus_element_width) - 50px) * -1));
+    }
+}
+
+@keyframes mask-inner-move {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(calc(var(--focus_element_width) - 50px) * -1));
+    }
+}
+
+.focus_container {
+    position: relative;
+    width: auto;
+    direction: ltr;
+    font-size: xx-large;
+}
+
+.focus_container:before {
+    content: var(--focus_content);
+    filter: blur(3px);
+}
+
+.focus_container:after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: calc(100% + 8px);
+    top: 15%;
+    left: 45%;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    -webkit-animation: mask-move 2s linear infinite alternate;
+    animation: mask-move 2s linear infinite alternate;
+}
+
+.focus--mask {
+    overflow: hidden;
+    font-size: xx-large;
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    top: 0;
+    left: 43%;
+    background: white;
+    -webkit-animation: mask-move 2s linear infinite alternate;
+    animation: mask-move 2s linear infinite alternate;
+}
+
+.focus--mask-inner {
+    font-size: xx-large;
+    height: 200px;
+    width: calc(var(--focus_element_width) + 50px);
+    -webkit-animation: mask-inner-move 2s linear infinite alternate;
+    animation: mask-inner-move 2s linear infinite alternate;
+}
